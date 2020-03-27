@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/mainFragmentsEstrenos">
+
+    <fragment
+        android:id="@+id/mainFragmentsEstrenos"
+        android:name="com.example.cineview20.view.NowPlayingFragment"
+        android:label="MainFragmentsEstrenos"
+        tools:ignore="ExtraText">
+        <action
+            android:id="@+id/action_mainFragmentsEstrenos_to_mainFragmentDetalles"
+            app:destination="@id/mainFragmentDetalles">
+
+            <argument
+                android:name="movies"
+                app:argType="com.example.cineview20.model.data.movie.MoviePojo" />
+
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragmentDetalles"
+        android:name="com.example.cineview20.view.DetailFragment"
+        android:label="MainFragmentDetalles" >
+        <action
+            android:id="@+id/action_mainFragmentDetalles_to_secondActivity"
+            app:destination="@id/secondActivity" />
+        <action
+            android:id="@+id/action_mainFragmentDetalles_to_mainFragmentsEstrenos"
+            app:destination="@id/mainFragmentsEstrenos" />
+    </fragment>
+    <activity
+        android:id="@+id/secondActivity"
+        android:name="com.example.cineview20.view.YoutubeMovieActivity"
+        android:label="SecondActivity" />
+</navigation>
